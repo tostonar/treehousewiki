@@ -12,8 +12,12 @@ def save_content(title, content)
   end
 end
 
-get '/' do
+get "/" do
   erb :welcome
+end
+
+get "/new" do
+  erb :new
 end
 
 get "/:title" do
