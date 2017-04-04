@@ -1,5 +1,19 @@
+
 <h1>Welcome to our Wiki!</h1>
 
 <p>Visit /PageName to view a page.</p>
 
 <p>Or, you can <a href="/new">create a new page</a></p>
+
+<h3>All Pages</h3>
+
+<% entries = Dir.glob("pages/*.txt") %>
+<% entries.map! do |entry| %>
+  <% entry.gsub("pages/", "") %>
+<% end %>
+<% entries.map! do |entry| %>
+  <% entry.gsub(".txt", "") %>
+<% end %>
+<% entries.each do |x| %>
+  <p><a href="/<%=  x %>"><%= x %></a></p>
+<% end %>
